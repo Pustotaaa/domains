@@ -35,7 +35,7 @@
    <li class="item2"></li>
 </ul>
 
-<a href="#" class="btn">Hover Me</a>
+<a href="#" class="btn">нажми на меня</a>
 
 <form action="index.php" method="post">
     <input type="text" name="post">
