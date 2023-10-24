@@ -1,215 +1,220 @@
-function getCoords(elem) { // Функция получения координат нужного нам элемента (верх, право и лево)
-    
-    var box = elem.getBoundingClientRect();
-    return {
-        top: box.top ,
-        left: box.left  ,
-        right: box.right ,
-        bottom: box.bottom
-    };
-}
-function GetStartY(elem) { // Функция получения координат нужного нам элемента (верх, право и лево)
-    
-    var box = elem.getBoundingClientRect();
-    return box.top;
-}
-function GetStartX(elem) { // Функция получения координат нужного нам элемента (верх, право и лево)
-    
-    var box = elem.getBoundingClientRect();
-    return box.left;
-}
-function GetStartXX(elem) { // Функция получения координат нужного нам элемента (верх, право и лево)
-    
-    var box = elem.getBoundingClientRect();
-    return box.right;
-}
-
-
-
-
-
-
-// function EnemycordX(elem) { // Функция получения координат нужного нам элемента (верх, право и лево)
-    
-//     var box = elem.getBoundingClientRect();
-//     return box.left;
-// }
-// function EnemycordY(elem) { // Функция получения координат нужного нам элемента (верх, право и лево)
-    
-//     var box = elem.getBoundingClientRect();
-//     return box.top;
-// }
-
-// let main = document.getElementById("main");
-
-// if (event.code == "KeyD") {
-//     left_main -= speed;
-//     main.style.left = left_main + "px";
-//     let first = document.getElementById('unit');
-//     let second = document.getElementsByClassName('stoneBox');
-//     for (i = 0; i < second.length; i++){
-//         let sr = getCoords(second[i]).right; //Получаем координаты правой стороны блока
-//         let sl = getCoords(second[i]).left; // Получаем координаты левой стороны блока
-//         let f = getCoords(first).right; // Получаем координаты правой стороны юнита
-//         let fl = getCoords(first).left; // Получаем координаты левой стороны юнита (При движении вправо на не нужны)
-//         if (f > sl && f < sr){ // Если правая сторона юнита находится между левой и правой стороны блока, то выводим сообщение "остановись" (Это для наглядности, в Вашем случае либо выполняем действие либо нет)
-//             console.log('остановись!!!');
-//         } else {
-//             console.log('можно двигаться');
-//         }
-//     }
-// }
-
-// if(event.code == "KeyW"){
-//     bottom_main -= jump;
-//     main.style.bottom = bottom_main + "px";
-//     if(left_main <= -400 && left_main >= -450 ){}else{
-//         bottom_main += jump;
-//         setTimeout(' main.style.bottom = bottom_main + "px" ', 200);
-//     }
-// }
-
-// if(event.code == "KeyQ"){alert(left_main , bottom_main);}
-
-
-// if (event.code == "KeyA") {
-//     left_main += speed;
-//     main.style.left = left_main + "px";  
-
-// }   
-
-
-//let CuretStart = setInterval(() => console.log(getCoords(document.querySelector("#bullet1"))),20)
-
-function range(xa,xb,ya,yb)
-{
-   return Math.sqrt(Math.pow((xb-xa),2)+ Math.pow((yb - ya),2));
-}
-
-
-let ty4 = setInterval(() => fun1(),500);
-let ty = setInterval(() => create(),1300);
-let ty2 = setInterval(() => enemiest(),7000);
-// let ty3 = setInterval(() => clean(),1000);
-// let CuretStart = setInterval(() => GetStartX(document.querySelector("#tower1")),200)
-// console.log(document.body.id)
+const TextHeath = document.getElementById('TextHeath');
+const tag = document.getElementById('tag')
+const enemys = document.getElementsByClassName('enemy')
+const bullets = document.getElementsByClassName('bullet')
+var CurrentHeath = 10;
+var whatelement = 0;
 let IndexEnemy = 0;
-// function fokus(){
-//   let X = Math.round(GetStartX(document.querySelector("#e")));
-//   let y = Math.round(GetStartX(document.querySelector("#e")));
-// }
+var index = 0;
 var IdEnemy = new Array();
 var IDDelite = new Array();
-function enemiest()
-  {
-   
-    let enemy = document.createElement('div');
-    enemy.setAttribute("class", "enemy");
-    enemy.setAttribute("id",`#e${IndexEnemy}`);
-    document.body.prepend(enemy);
-    
-    IdEnemy.push(IndexEnemy);
-    IndexEnemy++;
+var listbullet = new Array();
+var WinCount = 0;
+var TacticsCoin = 111;
+var cd = 1000 / 60;
+var cdtower = 500;
+var MaxRange = 500;
+var bulletdmg = 1;
+var enemyelo = 1;
+var onbild = false;
+setInterval(() => heath(), 1000 / 100);
+setInterval(() => enemiest(), 1000 / 1);
+setInterval(() => clean(), 1000 / 100);
+setInterval(() => fokus(), 1000 / 50);
+setInterval(() => contact(), 1000 / 8);
+window.addEventListener("mousedown", () => {
+  xe = event.clientX;
+  ye = event.clientY;
+});
+function GetY(elem) { try { return elem.getBoundingClientRect().top } catch { } }
+function GetX(elem) { try { return elem.getBoundingClientRect().left } catch { } }
+function range(xa, xb, ya, yb) { return Math.sqrt(Math.pow((xb - xa), 2) + Math.pow((yb - ya), 2)) }
+function heath() { TextHeath.innerHTML = CurrentHeath }
+
+function enemiest() {
+  let enemy = document.createElement('div');
+  let hp = document.createElement('p');
+  hp.setAttribute("class", "hp");
+  hp.innerHTML = enemyelo;
+  enemy.setAttribute("class", "enemy");
+  enemy.setAttribute("id", `e${IndexEnemy}`);
+  document.body.prepend(enemy);
+  IdEnemy.push(IndexEnemy);
+  if (1 == (Math.ceil((Math.random()) * (10)))) {
+    hp.innerHTML = enemyelo * 3;
+    enemyelo++;
   }
-  
-var index = 0;
-function clean(){
+  enemy.prepend(hp);
+
+  enemy.addEventListener("click", () => {
+    hp.innerHTML -= 1;
+    if (hp.innerHTML <= 0) {
+      enemy.remove()
+      IdEnemy.splice(0, 1)
+
+      WinCount = WinCount + Math.floor(Math.random() * (6 - 1 + 1)) + 1
+      TacticsCoin++;
+    }
+  })
+
+  IndexEnemy++;
+}
+function clean() {                        // УДАЛЕНИЕ ВРАГОВ СТЕНОЙ
+
   for (let indexx = 0; indexx < IdEnemy.length; indexx++) {
-   
-    if(GetStartX(document.getElementById(`#e${IdEnemy[indexx]}`)) <= -30){
-      IDDelite.push(IdEnemy[indexx]);
-      console.log(IDDelite);
-      console.log(IdEnemy);
-      document.getElementById(`#e${IdEnemy[indexx]}`).remove();
-      IdEnemy.splice(index);
+    if (GetX(document.getElementById(`e${IdEnemy[indexx]}`)) <= 0) {
+      let le = document.getElementById(`e${IdEnemy[indexx]}`);
+      le.remove();
+      --CurrentHeath;
+      IdEnemy.splice(indexx, 1);
+      if(CurrentHeath <= 0){
+        location.reload();
+      }
     }
   }
-  // for (let index = 0; index < IDDelite.length; index++) {
-  //   let le = document.getElementById(`#e${IDDelite[index]}`);
-  //   console.log("444")
-  //   // console.log(le);
-  //   // console.log(IDDelite[index]);
-  //   // console.log(IDDelite.length);
-  //   le.remove();
-  //   IdEnemy.splice(index);
-    
-  // }
-  // IDDelite = [];
+  IDDelite = [];
 }
-
-
-function fun1() {
-  var rng = document.getElementById('pol'); //полунок
- 
-  // document.querySelector("h1")
-  let lo = document.querySelector('#k2'); //text 
-  lo.style.fontSize = rng.value + "px"; //css
+var idd;
+function fokus() {                          //ПРИЦЕЛ + БАР
+  let time = 2000;
+  let current;
+  for (let index = 0; index < IdEnemy.length; index++) {
+    current = GetX(document.getElementById(`e${IdEnemy[index]}`))
+    if (time > current) {
+      time = current;
+      whatelement = IdEnemy[index];
+      idd = index;
+    }
+  }
+  document.querySelector("#tag").style.top = GetY(document.getElementById(`e${whatelement}`)) + 20 - (Math.random() * (25)) + 'px';
+  document.querySelector("#tag").style.left = (time - 25 - (Math.random() * (25))) + 'px';
+  document.getElementById('CountEnemy').innerHTML = `Врагов: ${IdEnemy.length}`
+  document.getElementById('WinCount').innerHTML = `Очки: ${WinCount}`
+  document.getElementById('TacticsCoin').innerHTML = `Ресурсы: ${TacticsCoin}`
 }
+function create(tower) {                                 //ПУЛИ
+  index++;
+  let startX = Math.round(GetX(document.querySelector(tower)));
+  let startY = Math.round(GetY(document.querySelector(tower)));
+  let Y = Math.round(GetY(document.querySelector("#tag")));
+  let X = Math.round(GetX(document.querySelector("#tag")));
+  let r = 1000;
+  if (MaxRange < range(X, startX, Y, startY)) {
+    for (let index = 0; index < IdEnemy.length; index++) {
+      Y = Math.round(GetY(document.querySelector(`#e${IdEnemy[index]}`)));
+      X = Math.round(GetX(document.querySelector(`#e${IdEnemy[index]}`)));
+      r = range(X, startX, Y, startY)
+      console.log(X)
+      if (r < MaxRange) {
+        break
+      }
+    }
+    if (r > MaxRange) {
+      return 0;
+    }
+  }
 
+  let Xenemy = (X - startX);
+  let yenemy = (Y - startY);
+  let koef = Math.abs(MaxRange / range(X, startX, Y, startY));
+  var play = 1.3;
+  let t = document.createElement('div');
+  t.setAttribute("id", "bullet" + index);
+  t.setAttribute("class", "bullet");
+  t.setAttribute("style", "left:" + startX + "px; top:" + startY + "px; animation:bullet" + index + ` ${play}s cubic-bezier(0.21, 0.33, 0.83, 1.09)`);
+  document.body.prepend(t);
+  var el = document.querySelector(':root');
+  el.style.cssText = "--PosiEnd:" + Xenemy + "px; --PosiStart:0px EndPosiEnemyY:100px;";
 
-
-
-
-function create(){
-index++;
-var startX = Math.round(GetStartX(document.querySelector("#tower1")));
-var startY = Math.round(GetStartY(document.querySelector("#tower1")));
-var Y = Math.round(GetStartY(document.querySelector("#tag")));
-var X = Math.round(GetStartX(document.querySelector("#tag")));
-var MaxRange = 800;
-var Xenemy = (X - startX);
-var yenemy = (Y - startY);
-var koef= Math.abs(MaxRange / range(X,startX,Y,startY));
-if(koef <1){return}
-var play = 1.3;
-var t = document.createElement('div');
-t.setAttribute("id","bullet" + index);
-t.setAttribute("class", "bullet");
-t.setAttribute("style", "left:"+ startX + "px; top:" + startY +"px; animation:bullet"+ index +` ${play}s cubic-bezier(1, 0, 0, 1)` );
-document.body.prepend(t);  
-var el = document.querySelector(':root');
-el.style.cssText  = "--PosiEnd:"+Xenemy+"px; --PosiStart:0px EndPosiEnemyY:100px;";
-console.log();
-console.log();
-// console.log(startX);
-// console.log(startY);
-// console.log(range(X,startX,Y,startY));  
-// console.log('koef ',koef)
-
-var sss = `@keyframes bullet${index} { 0% { transform:translateX(0px) translateY(0px) scale(1) rotate(-100deg); } 100%{ transform: translateX(calc(${Xenemy*koef}px)) translateY(calc(${yenemy*koef}px)) scale(1) rotate(100deg);}}`
-addAnimation(sss);
+  listbullet.push(index)
+  var sss = `@keyframes bullet${index} { 0% { transform:translateX(0px) translateY(0px) scale(1) rotate(0deg); } 100%{ transform: translateX(calc(${Xenemy * koef}px)) translateY(calc(${yenemy * koef}px)) scale(1) rotate(0deg);}}`
+  addAnimation(sss);
+  t.addEventListener("animationend", () => { t.remove(), listbullet.splice(t.id, 1) });
 }
+function contact() {                         //СОПРИКОСНОВЕНИЕ
+  var sds;
+  var sd;
+  for (var ine = 0; ine < IdEnemy.length; ine++) {
+    let enemy = document.getElementById(`e${IdEnemy[ine]}`).getBoundingClientRect()
 
+    for (let index = 0; index < listbullet.length; index++) {
+      let bullet = document.getElementById(`bullet${listbullet[index]}`).getBoundingClientRect()
+      sd = bullet.right - bullet.left;
+      sds = bullet.bottom - bullet.top;
+
+      if (bullet.left + sd > enemy.left &&
+        bullet.right + sd < enemy.right &&
+        bullet.top + sds > enemy.top &&
+        bullet.bottom < enemy.bottom + sds
+        || range(enemy.right - (enemy.right - enemy.left) / 2,
+          bullet.right - sd / 2,
+          enemy.bottom - (enemy.bottom - enemy.top) / 2,
+          bullet.bottom - sds / 2) < 30) {
+        let hp = document.getElementById(`e${IdEnemy[ine]}`).firstChild
+
+        hp.innerHTML -= bulletdmg;
+        
+        if (hp.innerHTML <= 0) {
+          document.getElementById(`bullet${listbullet[index]}`).remove();
+          document.getElementById(`e${IdEnemy[ine]}`).remove()
+          IdEnemy.splice(ine, 1);
+          listbullet.splice(index, 1);
+          WinCount = WinCount + Math.floor(Math.random() * (6 - 1 + 1)) + 1
+          TacticsCoin++;
+        }
+        else {
+          document.getElementById(`bullet${listbullet[index]}`).remove();
+          listbullet.splice(index, 1);
+        }
+
+      }
+    }
+  }
+}
 let dynamicStyles = null;
-
 function addAnimation(body) {
   if (!dynamicStyles) {
     dynamicStyles = document.createElement('style');
     dynamicStyles.type = 'text/css';
     document.head.appendChild(dynamicStyles);
   }
-
   dynamicStyles.sheet.insertRule(body, dynamicStyles.length);
 }
+var xe;
+var ye;
+var inia = 0;
+function bild() {
+  let cost = document.getElementById('cost1').innerHTML;
+  if (onbild) {
+    let tower = document.createElement('div');
+    tower.setAttribute('class', 'tower');
+    tower.setAttribute('id', `tower${inia}`);
+    tower.style.top = ye - 25 + `px`;
+    tower.style.left = xe - 25 + 'px';
+    tower.style.zIndex = 10;
+    document.body.prepend(tower);
+    let tupo = "#tower" + inia;
+    setInterval(() => create(tupo), cdtower);
+    inia = inia + 1;
+    onbild = false;
+    TacticsCoin -= cost;
+    document.getElementById('bildzone').style.opacity = .0;
+  }
 
+}
+function Onbild() {
+  cost = document.getElementById('cost1').innerHTML;
+  console.log(onbild)
+  if (TacticsCoin >= cost) {
+    onbild = true
+    document.getElementById('bildzone').style.opacity = .1;
+  }
+}
+function ultimate() {
+  let Y = Math.round(GetY(document.querySelector("#tag")));
+  let X = Math.round(GetX(document.querySelector("#tag")));
+  let ultimate = document.createElement(`div`)
+  ultimate.setAttribute('id', 'ultimate');
+  ultimate.addEventListener();
 
-addAnimation(`
-      @keyframes move-eye { 
-         from {
-           margin-left: -20%;
-         }
-        to {
-          margin-left: 100%;
-        }
-      }
-    `);
-
-
-var element = document.createElement("div");
-element.className = "cylon-eye";
-element.style.height = "50px";
-element.style.width = "50px";
-element.style.backgroundImage = "linear-gradient(to right,rgba(255, 0, 0, 0.1) 25%,rgba(255, 0, 0) 50%,rgba(255, 0, 0, 0.1) 75%)";
-element.style.animation = "4s linear 0s infinite alternate move-eye";
-
-document.body.appendChild(element);
+}

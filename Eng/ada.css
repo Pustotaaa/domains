@@ -1,0 +1,20 @@
+@media only screen and (max-width: 1200px) {
+    
+}
+@media only screen and (max-width: 995px) {
+    
+}
+@media only screen and (max-width: 800px) {
+   
+}
+@media only screen and (max-width: 500px) {
+   h1{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 65px;
+   }
+   #img{
+    width: 300px;
+   }
+}

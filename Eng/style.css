@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 html{
     height: 100vh;
     width: 100%;
@@ -13,13 +13,13 @@ html{
     position: relative;
     margin: 0px;
     padding: 0px;
-    font-family: 'Montserrat', sans-serif;
-    z-index: 3;
+    font-family: 'PT Serif', serif;
+    z-index: 1;
+    
     
 }
-
 input[type=text],
-input[type=button]{
+input[type=button],button{
     padding: 16px;
     margin: 5px;
     box-shadow: 0px 0px 15px 5px rgba(55, 54, 54, 0.468);
@@ -29,20 +29,26 @@ input[type=button]{
     border-radius: 15px;
     width: 250px;
     height: 50px;
-    font-size: inherit;
+    font-size: 20px;
     
 }
-input[type=submit]{
+input[type=submit],button{
+    background: linear-gradient(#f6f6f6, #eaeaea);
     padding: 10px;
     margin: 5px;
-    box-shadow: 0px 0px 15px 5px rgba(55, 54, 54, 0.468);
     border: #fff6f634;
-    border-bottom: 5px solid #00000034;
-    border-right: 6px solid #00000034;
-    border-radius: 15px;
-    width: 250px;
+    border: 1px solid #00000034;
+    border-bottom: 3px solid #00000034;
+    border-right: 3px solid #00000034;
+    width: 150px;
     height: 40px;
-    font-size: inherit;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    padding: 5px;
+    border-radius: 10px;
+    width: 150px;
+    margin-top: 12px;
+    font-size: 25px;
+    left: -90px;
 }
 
 input[type=hidden]
@@ -53,15 +59,13 @@ input[type=hidden]
   height: 0px;
   width: 0px;
 }
-input[type=submit] {
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-    border: 3px solid #00000034;
-    border-bottom: 1px solid #eee;
-    padding: 5px;
-    border-radius: 10px;
-    width: 150px;
-    margin-top: 12px;
+button:active,input[type=submit]:active{
+    transform: scale(.99);
+}
 
+#but{
+  top: -308px;
+  left: 75px;
 }
 body{
     /* background-image: url(art.png);
@@ -85,13 +89,14 @@ form{
 #form1{
     overflow: auto;
     display: block;
-    width: 350px;
+    width: 400px;
     height: auto;
+    
 }
 
 h1{
-    margin-top: 50px;
-    font-size: 55px;
+    margin-top: 0px;
+    font-size: 75px;
     color: rgba(0, 0, 0, 0.721);
     font-weight: bold;
     
@@ -107,4 +112,42 @@ h1{
     border-radius: 10%;
     border: 3px solid black;
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.548);
+}
+#p{
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-size: 27px;
+    opacity:0;
+    animation: se 2000ms  ;
+    animation-iteration-count:infinite;
+    animation-play-state: paused;
+    
+}
+#pp{
+    
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    opacity:0;
+    font-size: 30px;
+    animation: see 1000ms ;
+    color: rgb(251, 0, 0);
+    animation-iteration-count:infinite;
+    animation-play-state: paused;
+}
+@keyframes see{
+    0%{opacity:0;}
+    20%{opacity:1}
+    80%{opacity:1}
+    100%{opacity:0;
+    }
+    }
+
+@keyframes se{
+0%{opacity:0;}
+20%{opacity:1}
+80%{opacity:1}
+100%{opacity:0;
+}
 }

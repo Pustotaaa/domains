@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    position:relative;;
 }
 #pol{
     position: absolute;
@@ -11,6 +12,9 @@
 }
 #k2{
     font-size:50px;
+}
+.true{
+    z-index: 30;
 }
 h1 {
     margin-top: 8px;
@@ -22,37 +26,98 @@ h1 {
     color: aliceblue;
     font-weight: lighter;
     letter-spacing: 3px;
+    text-shadow:  rgb(255, 255, 255) 1px 0 10px;
+    z-index: 15;
 }
-
+#TacticsCoin{
+    position: absolute;
+    top: 5px;
+    left: 82%;
+    font-size: 30px;
+}
 html {
     font-family: 'Handlee', cursive;
-    background: rgb(101, 34, 178);
     position: relative;
     overflow: hidden;
     background-origin: border-box;
     background-repeat: no-repeat;
-    background-image: url(img/Untitled.png);
+    background-image: url(img/pixi.gif);
     background-size: 100% 100%;
     width: 100%;
     height: 100vh;
+    
+}
+.tower {
+    position: absolute;
+    margin-right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: linear-gradient(-45deg, #00E5FF, #0014FF);
+    z-index: 100;
+    filter: brightness(40%);
+}
+
+.tower::after
+{   
+    content: '';
+    position: absolute;
+    top: calc(-50px);
+    left: calc(-50px);
+    width: 150px;
+    height: 150px;
+    opacity: .0;
+    background: #ff0000;
+    z-index: 70;
+}
+.tower:hover::after{
+    position: absolute;
+    top: calc(-50px);
+    left: calc(-50px);
+    width: 150px;
+    height: 150px;
+    opacity: .07;
+    background: #ff0000;
+    z-index: 70;
+ 
+}
+#menu{
+    color: aqua;
+    position: absolute;
+    background-color: rgb(31, 28, 28);
+    top: 80vh;
+    width: 100%;
+    height: 20vh;
+    z-index: 10;
+  opacity: 0.8;
+  border-radius: 10%;
+  
+}
+#menu1{
+    
+    position: relative;
+    float: left ;
+    margin-top: 10px; 
+    width: auto; 
+    height: 50px ;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+.menu2{
+    position: relative;
+    float: left ;
+    font-size: 20px;
+    display: block;
+    min-width: 100%;
+    text-align: center;
 }
 #tower1{
     top:200px;
     left: 400px;
     z-index: 6;
 }
-
-.tower {
-    position: relative;
-    margin-right: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 15px;
-    background: linear-gradient(-45deg, #00E5FF, #0014FF);
-    z-index: 4;
-
-}
-
+#k4{margin-left: 20px; top: -60px; font-size: 25px; color: rgb(103, 0, 172);  text-shadow:  rgb(0, 0, 0) 1px 0px 10px;
+    z-index: 15;}
 .enemy {
     transform: rotate(-130deg) scale(.14);
     display: block;
@@ -60,18 +125,35 @@ html {
     width: 70px;
     height: 70px;
     left: 105%;
-    animation: animate 10s linear  ;
-    animation-delay: .3s;
+    opacity: 1 ;
+    filter: brightness(60%);
+    animation: animate 7s linear ;
     background-image: url(img/enemy2.png);
     background-repeat: no-repeat;
- 
+    box-shadow: 0px 0px 20px 2px rgb(245, 0, 0);
+    z-index: 20;    
 }
-#e1{top: 10vh;animation-delay: 1.1s; background-color: blue;}
-#e2{top: 20vh;animation-delay: .3s;}
-#e3{top: 30vh;animation-delay: .7s;}
-#e4{top: 50vh;animation-delay: .2s;}
-#e5{top: 34vh;animation-delay: .5s;}
-#e6{top: 24vh;animation-delay: .9s;}
+#ba{ 
+    position: relative;
+    top: -400px;
+    width: 200%;
+    height: 220vh;
+    background-image: url(img/ba.png);
+    background-repeat: no-repeat;
+    z-index: 2;
+    opacity: .5
+}
+#bildzone{
+    display: block;
+    position: absolute;
+    top: -400px;
+    width: 200%;
+    height: 220vh;
+    z-index: 3;
+    background-color: #42d62e;
+    color: #0014FF;
+    opacity: .0;
+}
 body{
     width: 100%;
     height: 100vh;
@@ -93,17 +175,31 @@ body{
 
 }
 #but{
+    position: absolute;
+    top: 10%;
 width: 100px;
 height: 100px;
 background-color: rgb(8, 125, 125);
+z-index: 4;
 }
 #tag{
-    width: 5px;
-    height: 5px;
-    background-color: red;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 0, 0);
     position: absolute;
-    top: var(--YTagMove);
-    left: var(--YTagMove);
+    top: 0;
+    left: 0;
+    opacity: .8;
+}
+.hp{
+  color: #ffffff;
+  position: relative;
+  top: 66px;
+  left: 36px;
+
+  font-size: 35px;
+  z-index: 10;
+   transform: rotate(130deg); 
 }
 .bullet{
     position: absolute;
@@ -112,12 +208,13 @@ background-color: rgb(8, 125, 125);
     width: 25px;
     height: 25px;
     transform: rotate(-40deg) scale(0.6);
-    animation: bullet 3s cubic-bezier(1, 0, 1, 1);
+    animation: bullet 1.3s cubic-bezier(1, 0, 1, 1);
     background-image: url(img/bullet4.png);
     background-repeat: no-repeat;
-    z-index: 2;
+    z-index: 6;
     left:400%;
-    
+    box-shadow:  0px 0px 100px 15px  rgba(255, 255, 255, 0.63);
+
 }
 :root{
    /* --PosiEnd:2000px;

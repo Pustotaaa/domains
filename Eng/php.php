@@ -1,19 +1,19 @@
-<?
-if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && !empty($_POST['name'])) {
-    $message = 'Имя: ' . $_POST['name'] . ' ';
-    $message .= 'Телефон: ' . $_POST['phone'] . ' ';
-    if(!empty($_POST['text'])) {
-        $message .= 'Текст: ' . $_POST['text'] . ' ';
-    }
-    $mailTo = "mail@mail.ru"; // Ваш e-mail
-    $subject = "Письмо с сайта"; // Тема сообщения
-    $headers= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=utf-8\r\n";
-    $headers .= "From: info@site.ru <info@site.ru>\r\n";
-    if(mail($mailTo, $subject, $message, $headers)) {
-        echo "Спасибо, ".$_POST['name'].", мы свяжемся с вами в самое ближайшее время!"; 
-    } else {
-        echo "Сообщение не отправлено!"; 
-    }
+<?php
+$randome = array(
+  "as for","bow","cake","Canyon","cat","confetti","cow","dagger","data","distribute.png","dry","form","horse","journey","lamp","light","mountains","narrow","pickaxe","ruins","sold","speech","suspect","sword","trade","allocate"
+);
+if(!empty($_POST['text']) && mb_strtolower($_POST['text']) == mb_strtolower($_POST['lol']) or $_POST['lol'] == '322')
+{
+$otvet = $randome[rand(0,19)];
+    echo <<<_END
+<form action="" id=form1">
+  <input type="text" name="text" id='text'>
+  <input type="submit">
+  <input type="hidden" name="lol" id="lol" value="$otvet">
+  <img src="img/$otvet.jpg" id="img">
+</form>
+_END;
 }
-?>
+else{
+echo 1;
+}
