@@ -1,0 +1,66 @@
+#tablo{
+position: absolute;
+top: 10vh;
+left: auto;
+right: auto;
+width: 50%;
+height: 80vh;
+opacity: .99;
+color: rgb(251, 251, 252);
+background-color: rgb(53, 52, 52);
+box-shadow: rgb(53, 53, 53) 0 0 50px 10px;
+z-index: 10;
+border-radius: 10%;
+overflow: auto;
+padding: 25px;
+font-size: 25px;
+}
+.info{
+    position: relative;
+    float: left;
+    padding: 3px;
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 120px;
+    text-align: center;
+    opacity: 1;
+    
+}
+
+o{
+    position: relative;
+    font-size: 25px;
+    top: 45px;
+    display: block;
+    margin-top: -15px;
+    color: rgb(129, 129, 129);
+    
+}
+#player{
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+gg{
+    font-size: 35px;
+    color: gold;
+}
+#count0
+{
+    color: gold;
+}
+#count1
+{
+    color: rgb(215, 215, 215);
+}
+#count2
+{
+    color: brown;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+  }
+

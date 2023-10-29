@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <link rel="icon" href="img/icon.svg" type="image/svg+xml">
+    <link rel="" href="img/icon.svg" type="image/svg+xml">
     <style>*{user-select: none;}</style>
     
 </head>
@@ -15,66 +16,71 @@
     
     <h1 id="k2">split tactics</h1>
     <div id="k4">
-    <h2 id="TextHeath">10</h2>
-    <img src="img/ser.png" style="height:30px; width:auto; top:-42px; left: 40px;">
+    <h2 id="TextHeath" style="left: -10px;top: -10px;">10</h2>
+    <img src="img/ser.png" style="height:30px; width:auto; top:-47px; left: 40px;">
     <h2 id="CountEnemy" style="height:30px; width:auto; top:-95px; left: 86px; font-size: 35px;">Врагов: 0</h2>
-    <h2 id="WinCount" style="height:30px; width:auto; top:-122px; left: 286px; font-size: 35px;">Очки: 0</h2>
+    <h2 id="WinCount" style="height:30px; width:auto; top:-122px; left: 286px; font-size: 35px;" onclick="analitics()">Очки: 0</h2>
     <h2 id="TacticsCoin">0</h2>
     </div>
     
    
     <div id="ba" ></div>
     
-    <div id="bildzone" onclick="bild()"></div>
+    <div id="bildzone" onclick="bildtower1(),bildtower2()"></div>
 
     <div id="tag"></div>
 
 
     <div id="menu">
         <p style="position: absolute; top: 70%;left: 5px; font-size: 20px;">цена:</p>
-        <div style="width: 120px;height: 100%;margin-left: 50px;float: left;"onclick="ultimate() >
-            <p class="menu2" 
+        <div style="width: 120px;height: 100%;margin-left: 50px;float: left;"onclick="ultimate()"class="stats">
+            <p class='menu2' 
             style=" display: block;position: relative;float: left;font-size: 25px; width: 100%;text-align: center;">
             сияние
             </p>
             <img src="img/r.png" id="menu1">
-            <p class="menu2" id="cost1">10</p>
+            <p class="menu2" id="cost0">10</p>
         </div>
-        <div style="width: 120px;height: 100%;margin-left: 30px; float: left;" onclick="Onbild()">
+        <div style="width: 120px;height: 100%;margin-left: 30px; float: left;" onclick="Onbild('cost2')" class="stats">
             <p class="menu2">башня века</p>
             <img src="img/tower.png" width="auto" height="50px" id="menu1">
-            <p class="menu2">10</p>
+            <p class="menu2"  id="cost2">0</p>
         </div>
-        <div style="width: 120px;height: 100%;margin-left: 30px;float: left;">
+        <div style="width: 120px;height: 100%;margin-left: 30px;float: left;" class="stats" onclick="Onbild('cost1')">
             <p class="menu2">башня лазер</p>
-            <img src="" width="auto" height="50px" id="menu1" >
-            <p class="menu2">  10  </p>
+            <img src="img/lava.png" width="auto" height="50px" id="menu1" >
+            <p class="menu2" id="cost1">  60  </p>
         </div>
-        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;">
+        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;" class="stats" onclick="stats('cost3')">
             <img src="img/plus.png" width="auto" height="25px" id="" style="float: right;margin-top: 20px;">
             <p style="width:60%;margin-right: 0;float: right;margin-top: 10px;margin-right: 10px;">Увеличить урона пуль</p>
-            <p style="top: 65px; font-size: 20px;left: 60px;">10</p>
+            <p id="cost3" style="top: 65px; font-size: 20px;left: 60px;width: 100%;position: absolute;">1</p>
         </div>
-        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;">
+        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;" class="stats" onclick="stats('cost4')">
             <img src="img/plus.png" width="auto" height="25px" id="" style="float: right;margin-top: 20px;">
-            <p style="width:60%;margin-right: 0;float: right;margin-top: 10px;margin-right: 10px;">Увеличить урона пуль</p>
-            <p style="top: 65px; font-size: 20px;left: 60px;">10</p>
+            <p style="width:70%;margin-right: 0;float: right;margin-top: 10px;margin-right: 10px;">Увеличить урона клика</p>
+            <p id="cost4" style="top: 65px; font-size: 20px;left: 60px;width: 100%;position: absolute;">1</p>
         </div>
-        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;">
+        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;" class="stats" onclick="stats('cost5')">
             <img src="img/plus.png" width="auto" height="25px" id="" style="float: right;margin-top: 20px;">
-            <p style="width:60%;margin-right: 0;float: right;margin-top: 10px;margin-right: 10px;">Увеличить урона пуль</p>
-            <p style="top: 65px; font-size: 20px;left: 60px;">10</p>
+            <p style="width:60%;margin-right: 0;float: right;margin-top: 10px;margin-right: 10px;">скорость пуль</p>
+            <p id="cost5" style="top: 65px; font-size: 20px;left: 60px;width:30px;height: 10px;position: absolute;">1</p>
         </div>
-       
-
-   
+        <div style="width: 140px;height: 100%;margin-right: 10px;float: right;" class="stats" onclick="stats('cost6')">
+            <img src="img/plus.png" width="auto" height="25px" id="" style="float: right;margin-top: 20px;">
+            <p style="width:60%;margin-right: 0;float: right;margin-top: 10px;margin-right: 10px;">скоростре льность</p>
+            <p id="cost6" style="top: 65px; font-size: 20px;left: 60px;width: 100%;position: absolute;">1</p>
+        </div>
+        <div style="width: 160px;height: 100%;margin-right: 10px;float: right;" class="stats" onclick="stats('cost7')">
+            <img src="img/plus.png" width="auto" height="25px" id="" style="float: right;margin-top: 20px;">
+            <p style="width:90%;margin-right: 0;float: right;margin-top: -30px;margin-right: 10px;">шанс двойного удара</p>
+            <p id="cost7" style="top: 65px; font-size: 20px;left: 60px;width: 100%;position: absolute;">1</p>
+        </div>
+      
    <!-- <button id="but" onclick="enemiest()"></button> -->
-   
-   <div id="d1"></div>
 
-    <div class="bullet" ></div>
+  
     <script src="script.js"></script>
-
 </body>
 
 </html>

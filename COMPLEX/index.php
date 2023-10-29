@@ -15,21 +15,21 @@
 ?>
 
 <ul>
-   <li class="item1"></li>
-   <li class="item1"></li>
-   <li class="item1"></li>
+   <li class="item1" id="e4"></li>
+   <li class="item1" id="e3"></li>
+   <li class="item1" id="e77"></li>
    <li class="item2"></li>
    <li class="item2"></li>
    <li class="item2"></li>
-   <li class="item1"></li>
-   <li class="item1"></li>
-   <li class="item1"></li>
+   <li class="item1" id="e36"></li>
+   <li class="item1" id="e35"></li>
+   <li class="item1" id="e33"></li>
    <li class="item2"></li>
    <li class="item2"></li>
    <li class="item2"></li>
-   <li class="item1"></li>
-   <li class="item1"></li>
-   <li class="item1"></li>
+   <li class="item1" id="e3324"></li>
+   <li class="item1" id="e334"></li>
+   <li class="item1" id="e3234"></li>
    <li class="item2"></li>
    <li class="item2"></li>
    <li class="item2"></li>

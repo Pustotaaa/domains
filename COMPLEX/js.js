@@ -7,3 +7,6 @@ let obj = {
    
     }
   };
+console.log(document.getElementsByClassName('item1').item(0).getBoundingClientRect(),
+
+)
