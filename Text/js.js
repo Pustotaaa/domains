@@ -10,5 +10,5 @@ canvas.height = 600;
 var vaniaw = 0;
 var vania  =  23;
 
-var vania  =  100;
+var vania  =  102;
 var a = 7;
