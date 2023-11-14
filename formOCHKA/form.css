@@ -18,6 +18,9 @@ html{
     
 }
 
+::-webkit-scrollbar {
+    width: 0;
+  }
 input[type=text],
 input[type=button]{
     padding: 10px;

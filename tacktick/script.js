@@ -2,33 +2,34 @@ const TextHeath = document.getElementById('TextHeath');
 const tag = document.getElementById('tag')
 const enemysId = document.getElementsByClassName('enemy')
 const bulletsId = document.getElementsByClassName('bulletid')
-var CurrentHeath = 10;
-var indexBullet = 0;
-var IndexEnemy = 0;
+
 var IdEnemy = new Array();
 var IDDelite = new Array();
 var listbullet = new Array();
+var playerHeath = 10;
+var indexBullet = 0;
+var IndexEnemy = 0;
 var WinScore = 0;
 var totalDmg = 0;
 var totalGold = 0;
-var TacticsCoin = 0;
+var TacticsCoin = 10;
 var cdtower = 50;
 var cdbullet = 1;
 var bulletdmg = 1;
 var enemyHp = 3;
-var onbildTower1 = false;
-var onbildTower2 = false;
 var clickdmg = 1;
 var speedbullet = 1;
-var stopSpanEnemy = true;
 var reward = 0.5;
-var UltReady = true;
 var ChanceDubleDMG = 0;
+var towerId = 0;
+var click = 0;
+var onbildTower1 = false;
+var onbildTower2 = false;
+var stopSpanEnemy = true;
+var UltReady = true;
 var dynamicStyles = null;
 var cursorX;
 var cursorY;
-var towerId = 0;
-var click = 0;
 var stoppromp = true;
 setInterval(() =>
   heath(), 1000 / 100);
@@ -38,13 +39,13 @@ setInterval(() =>
   spawnEnemies(), 1000/0.3);
 
 setInterval(() =>
-  cleanEnemies(), 1000 / 100);
+  cleanEnemies(), 1000 / 10);
 
 setInterval(() =>
-  fokus(), 1000 / 50);
+  fokus(), 1000 / 30);
 
 setInterval(() =>
-  contact(), 1000 / 60);
+  contact(), 1000 / 30);
 
 setInterval(() =>
   handleReward(), 10000);
@@ -59,7 +60,7 @@ if (WinScore > 1000) { reward = 0 } }
 function GetY(elem) { try { return elem.getBoundingClientRect().top } catch { } }
 function GetX(elem) { try { return elem.getBoundingClientRect().left } catch { } }
 function range(xa, xb, ya, yb) { return Math.sqrt(Math.pow((xb - xa), 2) + Math.pow((yb - ya), 2)) }
-function heath() { TextHeath.innerHTML = CurrentHeath }
+function heath() { TextHeath.innerHTML = playerHeath }
 function speedSpawnEnemy() {
     clearInterval(intervarEnemy);
     let enemySecond = 0.3;
@@ -151,11 +152,11 @@ function cleanEnemies() {                        // УДАЛЕНИЕ ВРАГО�
     if (GetX(enemysId.item(index)) <= 10) {
       let le = enemysId.item(index);
       le.remove();
-      --CurrentHeath;
+      --playerHeath;
       // IdEnemy.splice(index, 1);
       stopSpanEnemy = false;
       setTimeout(() => stopSpanEnemy = true, 5000)
-      if (CurrentHeath <= 0 && stoppromp) {
+      if (playerHeath <= 0 && stoppromp) {
         stoppromp = false;
         if(WinScore >= 0){
         let Name = prompt('Ваше имя ');
@@ -451,11 +452,10 @@ function ultimate() {
     ultimate.addEventListener('animationend', () => {
       ultimate.remove()
     })
-
   }
 }
 setInterval(() => { 
-  console.log(totalDmg, totalGold, reward, speedSpawnEnemy()) }, 10000)
+  console.log(totalDmg, totalGold, reward, speedSpawnEnemy()) }, 5000)
 function analitics() {
   click += 1;
   if (click >= 2) {

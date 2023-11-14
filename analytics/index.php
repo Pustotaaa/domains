@@ -8,6 +8,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
   <div id="tablo">
     <p id="player">лучший тактик</p>
     <!-- <p class="info" style="">WinCount</p>
@@ -83,45 +122,7 @@
 
    ?>
   </div>
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
+
   <script src="c.js"></script>
 </body>
 </html>

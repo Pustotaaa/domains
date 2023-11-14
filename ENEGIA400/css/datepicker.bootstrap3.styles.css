@@ -1,0 +1,73 @@
+.daterangepicker.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.daterangepicker.dropdown-menu * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.daterangepicker.dropdown-menu .hide {
+  display: none !important;
+}
+.daterangepicker.dropdown-menu table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.daterangepicker.dropdown-menu .table-condensed > tbody > tr > td,
+.daterangepicker.dropdown-menu .table-condensed > thead > tr > th {
+  padding: 5px;
+}
+.daterangepicker.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.daterangepicker.dropdown-menu .glyphicon {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+}
+.daterangepicker.dropdown-menu .glyphicon-calendar:before {
+  content: '\e8c5';
+}
+.daterangepicker.dropdown-menu .glyphicon-chevron-left:before {
+  content: '\e8b7';
+  font-size: 19px;
+}
+.daterangepicker.dropdown-menu .glyphicon-chevron-right:before {
+  content: '\e8b8';
+  font-size: 19px;
+}
+.daterangepicker.dropdown-menu .ranges li {
+  color: inherit;
+}
+.daterangepicker.dropdown-menu .ranges li.active,
+.daterangepicker.dropdown-menu .ranges li:hover {
+  background-color: #337ab7;
+  border-color: #337ab7;
+  color: #fff;
+}

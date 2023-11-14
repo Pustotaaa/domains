@@ -14,6 +14,7 @@ border-radius: 10%;
 overflow: auto;
 padding: 25px;
 font-size: 25px;
+animation: 1s animaa linear;
 }
 .info{
     position: relative;
@@ -63,4 +64,14 @@ gg{
 ::-webkit-scrollbar {
     width: 0;
   }
-
+@keyframes animaa{
+0%{
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0px, -1000px, 0px);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+60%{
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0px, 60px, 0px);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);}
+}

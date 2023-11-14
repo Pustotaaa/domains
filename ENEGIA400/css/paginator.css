@@ -1,0 +1,11 @@
+/**
+ * Стили для нового пагинатора генерируемого функцией renderPaginator().
+ */
+
+table.paginator-new td{
+	padding: 0 2px 0 1px;
+}
+
+table.paginator-new td a.page-num{
+	font-weight: bold;
+}

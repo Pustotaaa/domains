@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap'); */
 
 * {
     margin: 0;
@@ -11,6 +11,8 @@
     margin: 30px;
 }
 #k2{
+    top: 0;
+    position: absolute;
     font-size:50px;
 }
 .true{
@@ -31,9 +33,10 @@ h1 {
 }
 #TacticsCoin{
     position: absolute;
-    top: 5px;
-    left: 82%;
-    font-size: 30px;
+    top: 70px;
+    left: 70%;
+    font-size: 35px;
+    width: auto;
 }
 html {
     font-family: 'Handlee', cursive;
@@ -41,11 +44,15 @@ html {
     overflow: hidden;
     background-origin: border-box;
     background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    
+}
+#fon{
     background-image: url(img/pixi.gif);
     background-size: 100% 100%;
     width: 100%;
     height: 100vh;
-    
 }
 .tower2{
     position: absolute;
@@ -146,8 +153,16 @@ html {
     text-align: center;
 }
 
-#k4{margin-left: 20px; top: -60px; font-size: 25px; color: rgb(103, 0, 172);  text-shadow:  rgb(0, 0, 0) 1px 0px 10px;
-    z-index: 15;}
+#k4{
+    position: absolute;
+    margin-left: 20px; 
+    top: -60px; font-size: 25px; 
+    color: rgb(103, 0, 172); 
+    text-shadow:  rgb(0, 0, 0) 1px 0px 10px;
+    z-index: 15;
+    width: 100%;
+}
+    
 .enemy {
     display: block;
     position: absolute;
@@ -164,10 +179,11 @@ html {
     
 }
 #ba{ 
-    position: relative;
-    top: -400px;
-    width: 200%;
-    height: 220vh;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
     background-color: black;
     z-index: 2;
     opacity: .5

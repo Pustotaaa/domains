@@ -47,11 +47,16 @@ if (isset($_POST['reset']) && isset($_POST['Id']) && isset($_POST['name']) && is
 if (
     isset($_POST['do']) &&
     isset($_POST['name']) &&
-    isset($_POST['content'])
+    isset($_POST['content'])&&
+    isset($_POST['author'])&&
+    isset($_POST['about'])
 ) {
     $name = $conn->real_escape_string($_POST['name']);
     $content = $conn->real_escape_string($_POST['content']);
+    $author = $conn->real_escape_string($_POST['author']);
+    $about = $conn->real_escape_string($_POST['about']);
     $query = "INSERT INTO `books` (`name`, `content`) VALUES ('$name', '$content')";
+    $query = "INSERT INTO `Author` (`author`, `about`) VALUES ('$author', '$about')";
     try
     {
         $result = $conn->query($query);
@@ -71,6 +76,8 @@ echo <<<_END
 <pre>
  Name <input type="text" name="name" > 
  Content <input type="text" name="content" >
+ Author <input type="text" name="author" >
+ About <input type="text" name="about" >
  <input type="hidden" name="do" value="yes">
  <input type="submit" value="запись"> 
  </pre> </form>
@@ -81,7 +88,7 @@ _END;
  $query = "SELECT * FROM `books`";
  $result = $conn->query($query);
  $masss = $result->num_rows;   
-
+print_r($result);
 for ($j = 0; $j < $masss; $j++) {
    $result->data_seek($j);
    $mass = $result->fetch_array(MYSQLI_NUM);
@@ -102,7 +109,9 @@ Content $mass[2]
 <input type="submit" name="action" value="Редактировать">
 </form> 
 _END;
+
 }
+
 $result->close();
 $conn->close();
 ?>
