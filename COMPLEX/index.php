@@ -18,6 +18,22 @@
    <li class="item1" id="e4"></li>
    <li class="item1" id="e3"></li>
    <li class="item1" id="e77"></li>
+   <li class="item1" id="e4"></li>
+   <li class="item1" id="e3"></li>
+   <li class="item1" id="e77"></li>
+   <li class="item1" id="e4"></li>
+   <li class="item1" id="e3"></li>
+   <li class="item1" id="e77"></li>
+   <li class="item1" id="e4"></li>
+   <li class="item1" id="e3"></li>
+   <li class="item1" id="e77"></li>
+   <li class="item1" id="e4"></li>
+   <li class="item1" id="e3"></li>
+   <li class="item1" id="e77"></li>
+   <li class="item1" id="e4"></li>
+   <li class="item1" id="e3"></li>
+   <li class="item1" id="e77"></li>
+   
    <li class="item2"></li>
    <li class="item2"></li>
    <li class="item2"></li>
@@ -42,16 +58,18 @@
     <input type="submit">
 </form>
 <?php
-$eee=isset($_POST['post']);
-if(isset($_POST['post'])){
-echo <<<_END
-$eee+$eee
-_END;
-}
+// $eee=isset($_POST['post']);
+// if(isset($_POST['post'])){
+// echo <<<_END
+// $eee+$eee
+// _END;
+// }
 ?>
 
 <div id="fafafa">
-     <video src="rol.mp4" id="fafafa1" autoplay controls ></video> 
+     <video  id="fafafa1" controls autoplay >
+     <source src="rol.mp4" type="video/mp4" >
+     </video> 
      <script src="js.js" defer></script> 
 </div>
 </body>

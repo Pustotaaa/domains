@@ -5,11 +5,14 @@
 }
 
 body {
+  position: absolute;
   height: 100vh;
+  width: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
 
 .item1 {
@@ -70,20 +73,30 @@ li {
 }
 
 .item1 {
-  animation: animate 30s linear infinite alternate;
+  animation: animate 1s linear infinite alternate;
 }
-
+@keyframes animate22
+{
+  0%{
+    transform: rotate(50deg) scale(0) skewX(-150deg);
+    background-color: rgba(255, 255, 255, 0.559);
+  }
+  100%{
+    transform: rotate(-800turn) scale(4 ) skewX(-2000000deg);
+    background-color: rgba(255, 0, 0, 0.669);
+  }
+}
 @keyframes animate
 {
 
     0% {
-      transform: rotate(50deg) scale(1) skewX(-150deg);
-      background-color: rgba(255, 0, 0, 0.559);
+      transform: rotate(50deg) scale(0) skewX(-150deg);
+      background-color: rgba(255, 255, 255, 0.559);
     }
 
     100% {
-      transform: rotate(-805deg) scale(10 ) skewX(-200deg);
-      background-color: rgba(255, 0, 208, 0.669);
+      transform: rotate(-800turn) scale(40 ) skewX(-200deg);
+      background-color: rgba(255, 0, 0, 0.669);
     }
   }
 
@@ -96,13 +109,15 @@ li {
   border-radius: 15px;
   position: absolute;
   float: top;
-  top: 70%;
-  left: 20%;
+  top: 150%;
+  left: 100%;
   padding: 4px;
 }
 #fafafa1{
-  width: 100%;
-  height: 100%;
+  
+  width: 1000px;
+  height: auto;
+  animation: animate22 30s linear infinite;
 }
 html{
   background-color: black;

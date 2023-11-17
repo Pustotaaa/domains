@@ -7,6 +7,8 @@ if (isset($_POST['delete']) && isset($_POST['Id']) && $_POST['action'] =='Уда
     $Id = $conn->real_escape_string($_POST['Id']);
     $query = "DELETE FROM books WHERE Id='$Id'";
     $result = $conn->query($query);
+    $query = "DELETE FROM Author WHERE Id='$Id'";
+    $result = $conn->query($query);
 }
 global $field1;
 global $field2;
@@ -55,10 +57,12 @@ if (
     $content = $conn->real_escape_string($_POST['content']);
     $author = $conn->real_escape_string($_POST['author']);
     $about = $conn->real_escape_string($_POST['about']);
-    $query = "INSERT INTO `books` (`name`, `content`) VALUES ('$name', '$content')";
-    $query = "INSERT INTO `Author` (`author`, `about`) VALUES ('$author', '$about')";
     try
     {
+       
+        $query = "INSERT INTO `Author` (`author`, `about`) VALUES ('$author', '$about')";
+        $result = $conn->query($query);
+        $query = "INSERT INTO `books` (`name`, `content`) VALUES ('$name', '$content')";
         $result = $conn->query($query);
     } catch(Exception $result)
     {
@@ -85,10 +89,10 @@ _END;
 ?>
 <div id="form3">
 <?php
- $query = "SELECT * FROM `books`";
+ $query = "SELECT b.id, b.name, b.content, a.author, a.about FROM Author a, books b WHERE a.id = b.id;";
  $result = $conn->query($query);
  $masss = $result->num_rows;   
-print_r($result);
+print_r($result->num_rows);
 for ($j = 0; $j < $masss; $j++) {
    $result->data_seek($j);
    $mass = $result->fetch_array(MYSQLI_NUM);
@@ -97,6 +101,8 @@ for ($j = 0; $j < $masss; $j++) {
 Id $mass[0] 
 Name $mass[1]
 Content $mass[2]
+Author $mass[3]
+About $mass[4]
 </pre>
 <form action="index.php" method="post">
 <input type="hidden" name="delete" value="yes">
