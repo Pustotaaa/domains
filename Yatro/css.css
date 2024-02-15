@@ -1,0 +1,149 @@
+@font-face {
+  font-family: 'fontMain';
+  src: local('fontMain'),
+    url(font/Neucha-Regular.ttf);
+}
+
+* {
+  z-index: 10;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: block;
+  min-height: 100%;
+  background: #363636;
+}
+
+input,
+button {
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0px 0px 10px 2px rgba(55, 54, 54, 0.468);
+  border: #fff6f634;
+  border-bottom: 2px solid #00000034;
+  border-right: 3px solid #00000034;
+  background: #be8411;
+  width: 250px;
+  height: 35px;
+  font-size: inherit;
+}
+button:active{
+  transform: scale(0.99);
+}
+input {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 1024px;
+  padding: 0 15px;
+  margin: 0 auto;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logo {
+  float: left;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+nav {
+  display: block;
+  width: 100%;
+  height: 100%;
+  float: right;
+}
+
+nav ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+ul li {
+  display: inline;
+}
+
+footer {
+  display: block;
+  width: 100%;
+  background: #4b1776;
+  height: 70px;
+  border-radius: 25px 25px 0 0;
+}
+
+header {
+  display: block;
+  width: 100%;
+  background: #4b1776;
+  height: 70px;
+  border-radius: 0 0 25px 25px;
+}
+#emailForm {
+  display: inline;
+  width: auto;
+  flex-wrap: wrap;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+#main-container {
+  padding: 0px;
+}
+
+#details {
+  /* background-image: url(Img/fon1.jpg); */
+  width: 1024px;
+  display: block;
+  z-index: 10;
+  border-radius: 70px;
+  position: relative;
+}
+
+#details1 {
+  position: absolute;
+  border-radius: 70px;
+  filter: brightness(20%);
+  width: 50%;
+  top: 0;
+  z-index: 0;
+}
+h2{
+  z-index: 10;
+  position: relative;
+  color: #edededb7;
+  font-size: 50px;
+  font-family: "fontMain";
+  letter-spacing: 2px;
+}
+h1{
+  font-size: 98px;
+  z-index: 10;
+  position: relative;
+  color: #ffffffb7;
+  font-family: "fontMain";
+  letter-spacing: 2px;
+  z-index: 2;
+}

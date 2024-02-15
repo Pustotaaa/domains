@@ -34,9 +34,9 @@ var stoppromp = true;
 setInterval(() =>
   heath(), 1000 / 100);
 
-var intervarEnemy = 
-setInterval(() =>
-  spawnEnemies(), 1000/0.3);
+var intervarEnemy =
+  setInterval(() =>
+    spawnEnemies(), 1000 / 0.3);
 
 setInterval(() =>
   cleanEnemies(), 1000 / 10);
@@ -54,23 +54,24 @@ window.addEventListener("mousedown", () => {
   cursorX = event.clientX;
   cursorY = event.clientY;
 });
-function handleReward() { 
-if (1 == Math.ceil(Math.random() * 2)) { reward += 1 } 
-if (WinScore > 1000) { reward = 0 } }
+function handleReward() {
+  if (1 == Math.ceil(Math.random() * 2)) { reward += 1 }
+  if (WinScore > 1000) { reward = 0 }
+}
 function GetY(elem) { try { return elem.getBoundingClientRect().top } catch { } }
 function GetX(elem) { try { return elem.getBoundingClientRect().left } catch { } }
 function range(xa, xb, ya, yb) { return Math.sqrt(Math.pow((xb - xa), 2) + Math.pow((yb - ya), 2)) }
 function heath() { TextHeath.innerHTML = playerHeath }
 function speedSpawnEnemy() {
-    clearInterval(intervarEnemy);
-    let enemySecond = 0.3;
-    enemySecond += Math.floor((WinScore/500*100))/100;
-     intervarEnemy = 
+  clearInterval(intervarEnemy);
+  let enemySecond = 0.3;
+  enemySecond += Math.floor((WinScore / 500 * 100)) / 100;
+  intervarEnemy =
     setInterval(() =>
-     spawnEnemies(), Math.floor(1000/enemySecond)); 
-    return Math.floor(1000/enemySecond);
+      spawnEnemies(), Math.floor(1000 / enemySecond));
+  return Math.floor(1000 / enemySecond);
 };
-function spawnEnemies(){
+function spawnEnemies() {
   if (stopSpanEnemy) {
     let enemy = document.createElement('div');
     let hp = document.createElement('p');
@@ -90,7 +91,7 @@ function spawnEnemies(){
         enemy.style.animationDuration = '24s';
       }
       enemyHp++;
-      enemyHp = enemyHp * 1 + Math.floor(WinScore/200); 
+      enemyHp = enemyHp * 1 + Math.floor(WinScore / 200);
     }
     dynamicStyles = null;
     if (scale == 0.5) {
@@ -108,7 +109,8 @@ function spawnEnemies(){
           top:60vh;
       }
   
-  }`)}
+  }`)
+    }
     else {
       addAnimation(`@keyframes animata {
     0%{
@@ -124,7 +126,8 @@ function spawnEnemies(){
         top:60vh;
     }
 
-}`)}
+}`)
+    }
     enemy.prepend(hp);
     enemy.addEventListener("click", () => {
       hp.innerHTML -= clickdmg;
@@ -132,9 +135,9 @@ function spawnEnemies(){
       if (hp.innerHTML <= 0) {
         removeEnemy(enemy)
         WinScore = WinScore + Math.floor(Math.random() * (9 - 1 + 1)) + 1
-        if (enemy.style.animationName == 'animata') {TacticsCoin += reward; totalGold+= reward}
+        if (enemy.style.animationName == 'animata') { TacticsCoin += reward; totalGold += reward }
         TacticsCoin += reward;
-        totalGold+= reward
+        totalGold += reward
         enemy.style.scale = .2;
         // createParticle(enemy.getBoundingClientRect().x,enemy.getBoundingClientRect().y)
       }
@@ -158,18 +161,18 @@ function cleanEnemies() {                        // УДАЛЕНИЕ ВРАГО�
       setTimeout(() => stopSpanEnemy = true, 5000)
       if (playerHeath <= 0 && stoppromp) {
         stoppromp = false;
-        if(WinScore >= 0){
-        let Name = prompt('Ваше имя ');
-        if(Name == null){{location.reload(); return}}
-        Name = Name.slice(0,25)
-        let xhr = new XMLHttpRequest();
-        let poss = new FormData();
-        poss.append(`Name`, Name);
-        poss.append(`WinScore`, WinScore);
-        poss.append(`totalDmg`, totalDmg);
-        poss.append(`totalGold`, totalGold);
-        xhr.open('post', 'php.php');
-        xhr.send(poss)
+        if (WinScore >= 0) {
+          let Name = prompt('Ваше имя ');
+          if (Name == null) { { location.reload(); return } }
+          Name = Name.slice(0, 25)
+          let xhr = new XMLHttpRequest();
+          let poss = new FormData();
+          poss.append(`Name`, Name);
+          poss.append(`WinScore`, WinScore);
+          poss.append(`totalDmg`, totalDmg);
+          poss.append(`totalGold`, totalGold);
+          xhr.open('post', 'php.php');
+          xhr.send(poss)
         }
         // location.reload();
       }
@@ -369,7 +372,7 @@ function bildtower1() {
   }
 }
 function Onbild(a) {
-  if(onbildTower1 == true || onbildTower2 == true){
+  if (onbildTower1 == true || onbildTower2 == true) {
     document.getElementById('bildzone').style.opacity = .0;
     onbildTower1 = false;
     onbildTower2 = false;
@@ -454,15 +457,17 @@ function ultimate() {
     })
   }
 }
-setInterval(() => { 
-  console.log(totalDmg, totalGold, reward, speedSpawnEnemy()) }, 5000)
+setInterval(() => {
+  console.log(totalDmg, totalGold, reward, speedSpawnEnemy())
+}, 5000)
 function analitics() {
   click += 1;
   if (click >= 2) {
     window.open("http://analytics/");
   }
-  setTimeout(() => { 
-    click-- }, 400)
+  setTimeout(() => {
+    click--
+  }, 400)
 }
 
 
@@ -515,7 +520,7 @@ function analitics() {
 //       particle.style.backgroundImage = 'url(https://atuin.ru/images/favicon.png)'; // Ссылка на картинку
 //       break;
 //       case 'shadow':
-//       var color = `hsl(${Math.random() * 50 + 200}, 70%, 50%)`; // Цвет 
+//       var color = `hsl(${Math.random() * 50 + 200}, 70%, 50%)`; // Цвет
 //       particle.style.boxShadow = `0 0 ${Math.floor(Math.random() * 10 + 10)}px ${color}`; // Тень
 //       particle.style.background = color;
 //       particle.style.borderRadius = '50%'; // Радиус
