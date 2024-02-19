@@ -5,7 +5,8 @@
 }
 
 body {
-  position: absolute;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
   height: 100vh;
   width: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -13,6 +14,7 @@ body {
   display: grid;
   place-items: center;
   overflow: hidden;
+  z-index: 2;
 }
 
 .item1 {
@@ -78,12 +80,12 @@ li {
 @keyframes animate22
 {
   0%{
-    transform: rotate(50deg) scale(0) skewX(-150deg);
-    background-color: rgba(255, 255, 255, 0.559);
+    transform: rotate(50deg) scale(2) skewX(-150deg);
+    background-color: rgb(255, 0, 0);
   }
   100%{
-    transform: rotate(-800turn) scale(4 ) skewX(-2000000deg);
-    background-color: rgba(255, 0, 0, 0.669);
+    transform: rotate(500000deg) scale(2) skewX(1500000deg);
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 @keyframes animate
@@ -95,7 +97,7 @@ li {
     }
 
     100% {
-      transform: rotate(-800turn) scale(40 ) skewX(-200deg);
+      transform: rotate(-800deg) scale(40 ) skewX(-200deg);
       background-color: rgba(255, 0, 0, 0.669);
     }
   }
@@ -114,10 +116,12 @@ li {
   padding: 4px;
 }
 #fafafa1{
-  
-  width: 1000px;
-  height: auto;
+  position: absolute;
+  background-color: black;
+  width: 90%;
+  height: 100vh;
   animation: animate22 30s linear infinite;
+  z-index: 4;
 }
 html{
   background-color: black;

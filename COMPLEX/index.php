@@ -6,7 +6,7 @@
     <title>ABYSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<!-- <body>
     <?php
     $a;
     $b;
@@ -65,11 +65,12 @@
 // _END;
 // }
 ?>
-
-<div id="fafafa">
-     <video  id="fafafa1" controls autoplay >
+-->
+<div id="fafafa1">
+    
+     <!-- <video  id="fafafa1" controls autoplay >
      <source src="rol.mp4" type="video/mp4" >
-     </video> 
+     </video>  -->
      <script src="js.js" defer></script> 
 </div>
 </body>
