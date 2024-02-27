@@ -1,77 +1,154 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
-body{
-    height: 100%;
-    
+@font-face {
+  font-family: "dtm-mono"; /*a name to be used later*/
+  src: url("fonts/minecraft-font-extended.ttf"); /*URL to font*/
 }
-header{
-    background-color: rgb(129, 129, 129);
-    position: fixed;
-    align-items: center;
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 50px;
-    height: 8vh;
+html {
+  background-color: rgb(22 16 59);;
 }
-footer{
-    
-    min-height: 40px;
-    
+body {
+  height: 100%;
 }
-button{
-    width: 70px;
-    height: 40px;
-    border-radius: 15px;
+header {
+  background-color:#351c4c;
+  position: fixed;
+  align-items: center;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50px;
+  height: 8vh;
 }
-#content{
-   width: 100%;
-   height: 300vh; 
-   background-color: blue;
+footer {
+  min-height: 40px;
 }
-#menu{
-    background-color: rgba(255, 235, 205, 0);
-    background-image: url(image/menu.png);
-    background-size: cover;
-    border: 0;
-    margin: 5px;
-    width: 40px;
-    height: 40px;
+button {
+  width: 70px;
+  height: 40px;
+  border-radius: 15px;
 }
-#search{
-        /* background-color: rgba(255, 235, 205, 0); */
-        margin: 5px;
-        width: 30px;
-        height: 30px;
- }
- #formSearch{
-     background-color: rgba(255, 255, 255, 0);
-     display: flex;
-    align-items: center;
-     width: 220px;
-     height: 3vh;
-     /* border-radius: 5px; */
-     margin: 10px;
- }
- #formSearchText{
+#content {
+  height: 300vh;
+  color: #A0AECD;
+}
+#menu {
+  background-color: rgba(255, 235, 205, 0);
+  background-image: url(interfaceImage/menu.png);
+  background-size: cover;
+  border: 0;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+}
+#search {
+  /* background-color: rgba(255, 235, 205, 0); */
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+#formSearch {
+  display: flex;
+  right: 300px;
+  align-items: center;
+  width: 220px;
+  height: 3vh;
+  /* border-radius: 5px; */
+  margin: 10px;
+}
 
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    border: 2px black  solid;
-    padding: 3px;
- }
- #RandomAnimePage{
-    position: fixed;
-    right: 80px;
- }
- #login{
-    position: fixed;
-    right: 0px;
- }
- #content{
-    
- }
+#formSearchText {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px black solid;
+  padding: 3px;
+  background-color: #d9d9e4;
+}
+#RandomAnimePage {
+  position: fixed;
+  right: 110px;
+  background-color: #d9d9e4;
+}
+#login {
+  position: fixed;
+  right: 0px;
+  padding: 20px;
+  border-left: 2px rgba(0, 0, 0, 0.715) solid;
+  border-right: 2px rgba(0, 0, 0, 0.715) solid;
+  border-radius: 10px;
+  margin: 5px;
+}
+.carts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 220px;
+  width: 220px;
+  height: 350px;
+  background-color: rgb(40, 52, 67);
+  margin: 20px;
+  background-color: rgb(40 52 67 / 10%);
+  border-radius: 12px;
+}
+#about {
+  margin-top: 100px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: #a0aecd;
+}
+#popular {
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: scroll;
+  display: flex;
+  margin-top: 100px;
+  height: 410px;
+  width: 85%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+/* #popular::-webkit-scrollbar {
+    width: 2;
+  } */
+
+#randomAnimeCard {
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.105);
+}
+#player {
+  display: flex;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.105);
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.imageCarts {
+  height: 80%;
+  width: 100%;
+}
+#imageCarts.a {
+  width: 100%;
+  height: 100%;
+}
+.img {
+  border-radius: 26px 26px 0 0;
+}
